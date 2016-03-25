@@ -28,7 +28,7 @@ docker run -d \
   -p 9400:8080 \
   -e repo=jordond/test-site
   -e branch=awesomeFeature
-  jordond/baseSite
+  jordond/basesite
 
 ```
 
