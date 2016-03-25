@@ -1,6 +1,6 @@
 # Simple Website docker
 
-`docker pull jordond/siteBase`
+`docker pull jordond/base`
 
 Used to create a simple container with NodeJS and git installed.  Used in a few of my simple website projects ie [Power Hour](http://github.com/jordond/powerhour-site), [Hoogit](http://github.com/jordond/hoogit).  Used for easy site hosting and reverse proxying with nginx.  A sample nginx config is included in this repo.
 
@@ -28,7 +28,7 @@ docker run -d \
   -p 9400:8080 \
   -e repo=jordond/test-site
   -e branch=awesomeFeature
-  jordond/siteBase
+  jordond/baseSite
 
 ```
 

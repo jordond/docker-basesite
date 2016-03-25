@@ -13,7 +13,7 @@
 #   -p 9400:8080 \
 #   -e repo=jordond/hoogit \
 #   -e branch=master
-#   jordond/siteBase
+#   jordond/baseSite
 
 FROM node:5-wheezy
 
