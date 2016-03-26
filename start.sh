@@ -4,9 +4,7 @@
 #
 # repo   - Format '<:user>/<:repo>'
 # branch - Format '<:branch> - Default 'master'
-#
-
-gitUrl="http://github.com/$repo"
+gitUrl="https://github.com/$repo"
 
 git clone $gitUrl /usr/src
 cd /usr/src

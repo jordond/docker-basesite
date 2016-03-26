@@ -16,7 +16,7 @@ fi
 echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT"
 
 docker run -d \
-  --name=$1 \
+  --name=$NAME \
   --restart=always \
   -e repo=$REPO \
   -p $PORT:8080 \
