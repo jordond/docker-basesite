@@ -8,7 +8,7 @@
 
 gitUrl="http://github.com/$repo"
 
-git clone gitUrl /usr/src
+git clone $gitUrl /usr/src
 cd /usr/src
 
 if [ -z "$branch" ]; then
