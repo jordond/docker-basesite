@@ -6,6 +6,8 @@
 # branch - Format '<:branch> - Default 'master'
 gitUrl="https://github.com/$repo"
 
+echo "Cloning $gitUrl"
+
 git clone $gitUrl /usr/src
 cd /usr/src
 
