@@ -5,7 +5,7 @@ NAME=$1
 REPO=$2
 PORT=$3
 
-if [[ $# -ne 3 ]]; then
+if [[ $# -le 3 ]]; then
   echo "Usage: "
   echo "       dockerize <:name> <:repo> <:port> (optional) <:branch>"
   echo "Fourth optional parameter: <:branch>"
