@@ -5,13 +5,6 @@ NAME=$1
 REPO=$2
 PORT=$3
 
-if [[ $# -le 3 ]]; then
-  echo "Usage: "
-  echo "       dockerize <:name> <:repo> <:port> (optional) <:branch>"
-  echo "Fourth optional parameter: <:branch>"
-  exit 1
-fi
-
 if [[ $# -eq 4 ]]; then
   BRANCH=$4
 else
@@ -19,8 +12,15 @@ else
   BRANCH=$(git rev-parse --abbrev-ref HEAD)
 fi
 
-echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT"
-echo ""
+if [[ $# -eq 3 ]]; then
+  echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT"
+  echo ""
+else
+  echo "Usage: "
+  echo "       dockerize <:name> <:repo> <:port> (optional) <:branch>"
+  echo "Fourth optional parameter: <:branch>"
+  exit 1
+fi
 
 docker run -d \
   --name=$NAME \
