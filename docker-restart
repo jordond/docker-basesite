@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# A Graceful restart script for docker.
+# If the specified container does not exist it will still exit 0
+# Used for Drone CI, to enable successful builds when container doesn't exist
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: "
+  echo "       docker-restart <:name>"
+  exit 1
+fi
+
+CONTAINER_NAME=$1
+
+docker restart $CONTAINER_NAME > /dev/null 1>&1
+if [[ $? -eq 0 ]]; then
+  echo "$CONTAINER_NAME was restarted"
+else
+  echo "There was an error restarting $CONTAINER_NAME"
+fi
