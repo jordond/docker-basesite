@@ -19,7 +19,8 @@ else
   BRANCH=$(git rev-parse --abbrev-ref HEAD)
 fi
 
-echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT \n"
+echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT"
+echo ""
 
 docker run -d \
   --name=$NAME \
