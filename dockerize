@@ -7,13 +7,17 @@ PORT=$3
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 if [[ $# -ne 3 ]]; then
-  echo "Not enough parameters"
   echo "Usage: "
-  echo "       dockerize <:name> <:repo> <:port>"
+  echo "       dockerize <:name> <:repo> <:port> (optional) <:branch>"
+  echo "Fourth optional parameter: <:branch>"
   exit 1
 fi
 
-echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT"
+if [[ $# -eq 4 ]]; then
+  BRANCH=$4
+fi
+
+echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT \n"
 
 docker run -d \
   --name=$NAME \
