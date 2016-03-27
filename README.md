@@ -2,12 +2,20 @@
 
 `docker pull jordond/base`
 
-Used to create a simple container with NodeJS and git installed.  Used in a few of my simple website projects ie [Power Hour](http://github.com/jordond/powerhour-site), [Hoogit](http://github.com/jordond/hoogit).  Used for easy site hosting and reverse proxying with nginx.  A sample nginx config is included in this repo.
+Used to create a simple container with NodeJS and git installed.  Used in a few of my simple website projects ie [Power Hour](http://github.com/jordond/powerhour-site), [Hoogit](http://github.com/jordond/hoogit).  Used for easy site hosting and reverse proxying with nginx.
 
 ## What it does
 
 - Pulls the specified repository and branch.
 - Runs `npm install`, `npm build`, and `npm start`.
+
+## Included
+
+- A sample nginx config to reverse proxy to this docker container.
+- A script to easily create this docker container from the project folder.
+- A sample .drone.yml config file to be used with Drone.io
+- A script to be used with Drone to gracefully restart the docker container.
+  - Note: If the container doesn't exist, the script will exit cleanly preventing a failed build.
 
 ## Configuration
 

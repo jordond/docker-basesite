@@ -1,0 +1,24 @@
+cache:
+  mount:
+    - node_modules
+build:
+  image: node:wheezy
+  commands:
+    - npm install --unsafe-perm
+    - npm run build
+
+deploy:
+  ssh:
+    host: mydomain
+    user: user
+    commands:
+      - docker-restart awesomeSite
+    when:
+      branch: develop
+  ssh:
+    host: hoogit.ca
+    user: user
+    commands:
+      - docker-restart awesomeSite
+    when:
+      branch: master
