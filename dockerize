@@ -4,7 +4,6 @@
 NAME=$1
 REPO=$2
 PORT=$3
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 if [[ $# -ne 3 ]]; then
   echo "Usage: "
@@ -15,6 +14,9 @@ fi
 
 if [[ $# -eq 4 ]]; then
   BRANCH=$4
+else
+  echo "Getting current branch from current directory"
+  BRANCH=$(git rev-parse --abbrev-ref HEAD)
 fi
 
 echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT \n"
