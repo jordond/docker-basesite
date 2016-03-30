@@ -8,11 +8,16 @@ PORT=$3
 if [[ $# -eq 4 ]]; then
   BRANCH=$4
 else
-  echo "Getting current branch from current directory"
-  BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  if [ -d .git ]; then
+    echo "Getting current branch from current directory"
+    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  else
+    echo "Defaulting to master branch"
+    BRANCH="master"
+  fi
 fi
 
-if [[ $# -eq 3 ]]; then
+if [[ $# -eq 3 ]] || [[ $# -eq 4 ]]; then
   echo ""
   echo "Creating container $NAME from $REPO/$BRANCH exposing :$PORT"
   echo ""

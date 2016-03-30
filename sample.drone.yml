@@ -12,13 +12,13 @@ deploy:
     host: mydomain
     user: user
     commands:
-      - docker-restart awesomeSite
+      - docker-rebuild awesomeSite
     when:
       branch: develop
   ssh:
     host: hoogit.ca
     user: user
     commands:
-      - docker-restart awesomeSite
+      - docker-rebuild awesomeSite
     when:
       branch: master
