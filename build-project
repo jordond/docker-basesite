@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Pull updates from git repository
+# Install, and build source
+#
+
+cd $SOURCE_DIR
+
+git pull
+npm install --unsafe-perm
+npm run build

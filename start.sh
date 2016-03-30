@@ -8,8 +8,8 @@ gitUrl="https://github.com/$repo"
 
 echo "Cloning $gitUrl"
 
-git clone $gitUrl /usr/src
-cd /usr/src
+git clone $gitUrl $SOURCE_DIR
+cd $SOURCE_DIR
 
 if [ -z "$branch" ]; then
   echo "Checking out default branch"
@@ -18,7 +18,6 @@ else
   git checkout $branch
 fi
 
-git pull
-npm install --unsafe-perm
-npm run build
+/build-project
+
 npm start

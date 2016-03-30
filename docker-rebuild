@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: "
+  echo "       docker-rebuild <:name>"
+  exit 1
+fi
+
+CONTAINER_NAME=$1
+
+docker exec -it $CONTAINER_NAME /build-project > /dev/null 1>&1
+if [[ $? -eq 0 ]]; then
+  echo "$CONTAINER_NAME has initiated the build process"
+else
+  echo "There was an error issuing command to $CONTAINER_NAME"
+fi
+
+exit 0

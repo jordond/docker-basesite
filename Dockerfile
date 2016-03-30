@@ -17,8 +17,12 @@
 
 FROM node:5-wheezy
 
+ENV SOURCE_DIR /usr/src
+
 ADD ./start.sh /start.sh
+ADD ./build-project /build-project
 RUN chmod u+x /start.sh
+RUN chmod u+x /build-project
 
 RUN mkdir -p /usr/src
 WORKDIR /usr/src
